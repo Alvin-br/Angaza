@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angaza | Find Light</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your actual Public Key
+   })();
+</script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="navbar">
+            <a href="home.html" class="logo">Angaza<span class="dot">.</span></a>
+            <ul class="nav-links">
+                <li><a href="home.html" class="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="members.html">Members</a></li>
+                <li><a href="donate.html" target="_blank" class="donate-btn">Donate Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="top-scrolling-banner">
+        <div class="banner-overlay">
+            <div class="banner-content">
+                <h1>Let Your Light Shine</h1>
+                <p>Empowering the community through unity and action.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="top-hero">
+        <div class="top-hero-container">
+            <div class="top-hero-left">
+                <span class="welcome-tag">Welcome to Angaza</span>
+                <h1>Where Every <span class="highlight">Light</span> Matters</h1>
+                <p>Dedicated to empowering communities through action and sustainable growth. Join us in making the world a brighter place, one step at a time.</p>
+                <div class="hero-btns">
+                    <a href="about.html" class="btn-primary">About Us</a>
+                    
+                </div>
+            </div>
+            <div class="top-hero-right">
+                <div class="hero-image-wrapper">
+                    <img src="images/37.jpg" alt="Angaza Community" class="floating-img">
+                    <div class="image-accent"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="scripture-section">
+    <div class="scripture-container">
+        <i class="fas fa-quote-left quote-icon"></i>
+        <h2 class="bible-verse">"Blessed are the merciful, for they shall receive mercy."</h2>
+        <span class="verse-reference">Matthew 5:7</span>
+        <div class="verse-divider"></div>
+        <p class="verse-reflection">
+            At Angaza, this verse is our heartbeat. We believe that by showing compassion and kindness to the underserved, 
+            we reflect the light of a higher purpose. True mercy isn't just a feeling; it's an action that transforms lives.
+        </p>
+    </div>
+</section>
+
+
+
+    <section id="gallery" class="gallery-section">
+        <h2 class="gallery-heading">Our Work in Action</h2>
+        <div class="photo-grid">
+            <div class="gallery-item item-1">
+                <img src="images/21.jpg" alt="School Visit">
+                <div class="overlay">
+                    <h3>Warmth kwa streets</h3>
+                    <p>We went to the streets of Nairobi giving out food and clothes to the street children.</p>
+                </div>
+            </div>
+            <div class="gallery-item item-2"><img src="images/36.jpg" alt="Farming"><div class="overlay"><h3>Cancer center</h3><p>We visited the kid's cancer center in Kenyatta National Hospital.</p></div></div>
+            <div class="gallery-item item-3"><img src="images/17.jpg" alt="Water"><div class="overlay"><h3>School visit</h3><p>We visited a less fortunate school and supplied basic writting materials and books.</p></div></div>
+            <div class="gallery-item item-4"><img src="images/35.jpg" alt="Health"><div class="overlay"><h3>Merchandise</h3><p>Our members showcasing our merchendise.</p></div></div>
+            <div class="gallery-item item-5"><img src="images/1.jpg" alt="Finance"><div class="overlay"><h3>Cloth-drive</h3><p>We organised a successful cloth drive where we collected clothes to be donated.</p></div></div>
+            <div class="gallery-item item-6"><img src="images/29.jpg" alt="Youth"><div class="overlay"><h3>A Partnership</h3><p>We partnered with UTU initiative to visit a less fortunate school.</p></div></div>
+        </div>
+    </section>
+
+    <section class="news-section">
+        <h2 class="section-title">Latest News</h2>
+        <div class="news-container">
+            <div class="news-card">
+                <div class="news-image"><img src="images/news1.jpg" alt="News"></div>
+                <div class="news-body">
+                    <span class="news-date"></span>
+                    <h3></h3>
+                    <p>Latest News will be posted here</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-image"><img src="images/news2.jpg" alt="News"></div>
+                <div class="news-body">
+                    <span class="news-date"></span>
+                    <h3></h3>
+                    <p>Latest News will be posted here</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-image"><img src="images/news3.jpg" alt="News"></div>
+                <div class="news-body">
+                    <span class="news-date"></span>
+                    <h3></h3>
+                    <p>Latest News will be posted here</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="signup" class="registration-section reveal">
+    <div class="registration-container">
+        <h2>Join the Light</h2>
+        <p>Become a member of Angaza and stay updated on our community work.</p>
+        
+        <form id="registrationForm" class="reg-form">
+            <div class="input-group">
+                <input type="text" id="firstName" placeholder="First Name" required>
+                <input type="text" id="lastName" placeholder="Last Name" required>
+            </div>
+            <input type="email" id="userEmail" placeholder="Your Email Address" required>
+            <div class="g-recaptcha" data-sitekey="6LejQHAsAAAAABXOdzkn650d83dJdlbnCnobzsju"></div>
+            <button type="submit" id="submitBtn">Register</button>
+            <button type="button" id="verifyBtn" style="display: none;">Verify Membership</button>
+        </form>
+    </div>
+</section>
+
+    <footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-social-grid">
+            <a href="https://www.instagram.com/angaza.org_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-box">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+            <a href="https://www.tiktok.com/@angaza.org?is_from_webapp=1&sender_device=pc" target="_blank" class="social-box">
+                <i class="fab fa-tiktok"></i>
+                <span>TikTok</span>
+            </a>
+            <a href="https://accounts.google.com/SignOutOptions?hl=en&continue=https://mail.google.com/mail/&service=mail&ec=GBRAFw" class="social-box">
+                <i class="fas fa-envelope"></i>
+                <span>Gmail</span>
+            </a>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Angaza.org | All Rights Reserved.</p>
+            <p class="designer-credit">Designed by Brixy</p>
+        </div>
+    </div>
+</footer>
+<div id="welcomeModal" class="modal-overlay">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div class="icon-circle">✨</div>
+        </div>
+        <h2 id="modalTitle">Welcome to the Light!</h2>
+        <p id="modalMessage">You are now a registered member of Angaza. Together, we'll make a difference.</p>
+        <button id="closeModal">Let's Begin</button>
+    </div>
+</div>
+<script src="script.js"></script>
+
+</body>
+</html>

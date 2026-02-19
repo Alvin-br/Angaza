@@ -1,0 +1,212 @@
+
+/* ==========================================================================
+   1. CORE VARIABLES & SETUP
+   ========================================================================== */
+:root {
+    --primary: #06fac1;
+    --accent: #ffcc00;
+    --dark: #222222;
+    --light-grey: #f8f9fa;
+    --white: #ffffff;
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Segoe UI', Roboto, sans-serif; color: var(--dark); line-height: 1.6; }
+
+/* NAVBAR */
+.main-header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+.navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 15px 5%; }
+.logo { font-size: 1.6rem; font-weight: 800; text-decoration: none; color: var(--dark); }
+.logo .dot { color: var(--primary); }
+.nav-links { display: flex; list-style: none; gap: 30px; align-items: center; }
+.nav-links a { text-decoration: none; color: var(--dark); font-weight: 500; transition: var(--transition); }
+.nav-links a:hover, .nav-links a.active { color: var(--primary); }
+.donate-btn { background: var(--primary); padding: 10px 22px; border-radius: 50px; color: var(--dark) !important; font-weight: 700; }
+
+/* BANNERS */
+.top-scrolling-banner { width: 100%; height: 450px; background: url('images/22.jpg') center/cover no-repeat; margin-top: 70px; position: relative; }
+.banner-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; color: white; text-align: center; }
+.banner-content h1 { font-size: 3.5rem; text-transform: uppercase; letter-spacing: 2px; }
+
+/* IDENTITY SECTION (About Cards) */
+.identity-section { padding: 80px 5%; background: var(--light-grey); }
+.identity-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
+.identity-card { background: white; padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-bottom: 4px solid var(--primary); transition: var(--transition); }
+.identity-card:hover { transform: translateY(-10px); }
+.identity-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+.values-list { list-style: none; font-weight: 600; color: #666; }
+
+/* HISTORY SECTION (Split Arch) */
+.history-section { padding: 100px 5%; }
+.history-container { display: flex; align-items: center; max-width: 1100px; margin: 0 auto; gap: 80px; }
+.history-image { flex: 1; position: relative; }
+.history-image img { width: 100%; border-radius: 500px 500px 0 0; border: 12px solid var(--light-grey); }
+.history-text { flex: 1; }
+.welcome-tag { color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 10px; }
+
+/* ==========================================================================
+   SIMPLE & OUTSTANDING PARTNERSHIPS (V2)
+   ========================================================================== */
+.partners-modern {
+    padding: 80px 5%;
+    background: var(--white);
+    text-align: center;
+}
+
+.partners-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.partner-card {
+    background: var(--white); /* Removed the grey background */
+    width: 320px; /* Slightly wider to accommodate larger photo */
+    padding: 40px 20px;
+    border-radius: 30px;
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.05); /* Added a very faint border for structure */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+}
+
+/* Outstanding Hover: Vibrant Glow */
+.partner-card:hover {
+    transform: translateY(-15px) scale(1.03);
+    border-color: var(--primary);
+    box-shadow: 0 25px 50px rgba(6, 250, 193, 0.25); /* Stronger Brand Glow */
+}
+
+/* LARGER PHOTO BOX */
+.p-logo-box {
+    width: 180px; /* Increased from 100px */
+    height: 180px; /* Increased from 100px */
+    margin-bottom: 25px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.p-logo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Removed the grayscale filter for immediate visibility */
+    opacity: 0.8; 
+    transition: var(--transition);
+}
+
+.partner-card:hover img {
+    opacity: 1;
+    transform: scale(1.05); /* Subtle zoom instead of heavy scaling */
+}
+
+.partner-info h4 {
+    font-size: 1.3rem; /* Scaled up text to match larger photo */
+    color: var(--dark);
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.partner-info span {
+    font-size: 0.8rem;
+    color: var(--primary); /* Changed to brand color for more "vibrancy" */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+/* MERCHANDISE (Asymmetrical Grid) */
+.merch-modern { padding: 100px 5%; background: var(--dark); color: white; }
+.merch-header { text-align: center; margin-bottom: 50px; }
+.merch-layout { display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px; max-width: 1200px; margin: 0 auto; }
+.merch-featured { position: relative; height: 500px; border-radius: 15px; overflow: hidden; }
+.merch-featured img { width: 100%; height: 100%; object-fit: cover; }
+.m-label { position: absolute; bottom: 20px; left: 20px; background: var(--primary); color: var(--dark); padding: 8px 18px; font-weight: 800; border-radius: 4px; }
+.merch-sub-grid { display: grid; gap: 20px; }
+.m-sub-item { display: flex; align-items: center; gap: 20px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; }
+.m-sub-item img { width: 90px; height: 90px; border-radius: 8px; object-fit: cover; }
+
+/* GALLERY */
+.gallery-section { padding: 100px 5%; }
+.gallery-heading { text-align: center; margin-bottom: 50px; font-size: 2.5rem; }
+.photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+.gallery-item { height: 300px; border-radius: 15px; overflow: hidden; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+.gallery-item:hover img { transform: scale(1.1); }
+
+/* FOOTER */
+.main-footer { padding: 80px 5% 40px; background: var(--dark); color: white; text-align: center; }
+.footer-social-grid { display: flex; justify-content: center; gap: 40px; margin-bottom: 40px; }
+.social-box { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: white; transition: var(--transition); }
+.social-box i { font-size: 2rem; margin-bottom: 8px; }
+.social-box:hover { color: var(--primary); transform: translateY(-5px); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; opacity: 0.6; font-size: 0.9rem; }
+.designer-credit { color: var(--primary); font-weight: 700; margin-top: 5px; }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 992px) {
+    .identity-grid, .history-container, .merch-layout { grid-template-columns: 1fr; }
+    .history-container { flex-direction: column; text-align: center; }
+    .banner-content h1 { font-size: 2.5rem; }
+}
+/* Style for the Buy Buttons */
+.buy-btn {
+    background-color: #2ecc71; /* A "Success" Green or use your brand color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%; /* Makes it easy to tap on mobile */
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.buy-btn:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.buy-btn:active {
+    transform: translateY(0);
+}
+
+/* Specific adjustment for the featured item button */
+.merch-featured .buy-btn {
+    width: auto;
+    padding: 12px 30px;
+    font-size: 1rem;
+}
+/* 1. Ensure the box is a perfect square */
+.p-logo-box {
+    width: 200px; /* Set your desired size */
+    height: 200px; /* Must match width for a square */
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Prevents large images from leaking out */
+    background: transparent; /* Keeping it clean as you requested */
+}
+
+/* 2. Force the image to fit the container without stretching */
+.p-logo-box img {
+    width: 100%;
+    height: 100%;
+    /* This is the magic property: it forces the image to fill the 200x200 space 
+       without losing its proportions (no stretching!) */
+    object-fit: contain; 
+    transition: var(--transition);
+}

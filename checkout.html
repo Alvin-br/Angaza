@@ -1,0 +1,138 @@
+<style>
+    :root {
+        --mpesa-green: #2ecc71;
+        --dark-text: #2c3e50;
+        --border-color: #dcdde1;
+        --bg-color: #f5f6fa;
+    }
+
+    .checkout-container {
+        display: flex;
+        justify-content: center;
+        padding: 50px 20px;
+        background-color: var(--bg-color);
+        min-height: 80vh;
+    }
+
+    .checkout-form {
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        width: 100%;
+        max-width: 450px;
+        border-top: 5px solid var(--mpesa-green);
+    }
+
+    .checkout-form h2 {
+        color: var(--dark-text);
+        margin-bottom: 10px;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    #order-summary {
+        background: #f9f9f9;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 25px;
+        color: #7f8c8d;
+        font-weight: 500;
+        text-align: center;
+        border: 1px dashed var(--border-color);
+    }
+
+    .input-group {
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: var(--dark-text);
+        font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="tel"] {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        font-size: 16px;
+        transition: border-color 0.3s ease;
+        box-sizing: border-box; /* Prevents input from overflowing */
+    }
+
+    input:focus {
+        outline: none;
+        border-color: var(--mpesa-green);
+        box-shadow: 0 0 5px rgba(46, 204, 113, 0.2);
+    }
+
+    #finish-payment {
+        width: 100%;
+        padding: 15px;
+        background-color: var(--mpesa-green);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.2s, background 0.3s;
+        margin-top: 10px;
+    }
+
+    #finish-payment:hover {
+        background-color: #27ae60;
+        transform: translateY(-2px);
+    }
+
+    #finish-payment:active {
+        transform: translateY(0);
+    }
+</style>
+
+<div class="checkout-container">
+    <div class="checkout-form">
+        <h2>Complete Your Order</h2>
+        <div id="order-summary">Loading item...</div>
+        
+        <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" id="cust-name" placeholder="Enter your name" required>
+        </div>
+        
+        <div class="input-group">
+            <label>M-Pesa Number</label>
+            <input type="tel" id="cust-phone" placeholder="2547XXXXXXXX" required>
+        </div>
+        
+        <button id="finish-payment">Pay Now</button>
+    </div>
+</div>
+
+<script>
+    // 1. Get the price and item from the URL
+    const params = new URLSearchParams(window.location.search);
+    const itemPrice = params.get('price');
+    const itemName = params.get('item');
+    document.getElementById('order-summary').innerText = `Buying: ${itemName} - KES ${itemPrice}`;
+
+    // 2. Handle the payment click
+    document.getElementById('finish-payment').addEventListener('click', async () => {
+        const phone = document.getElementById('cust-phone').value;
+        const name = document.getElementById('cust-name').value;
+
+        // This sends the data to your backend script
+        const response = await fetch('process_payment.php', { // or your API URL
+            method: 'POST',
+            body: JSON.stringify({ amount: itemPrice, phone: phone, name: name })
+        });
+
+        alert("Please check your phone for the M-Pesa PIN prompt!");
+    });
+</script>

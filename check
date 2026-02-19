@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Angaza</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2ecc71;
+            --dark: #2c3e50;
+            --light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .checkout-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .logo { font-weight: bold; font-size: 24px; color: var(--dark); text-decoration: none; margin-bottom: 20px; display: block; }
+        .dot { color: var(--primary); }
+
+        .order-summary {
+            background: var(--light);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .input-group { text-align: left; margin-bottom: 15px; }
+        label { display: block; font-size: 14px; margin-bottom: 5px; color: #666; }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box; /* Crucial for padding */
+        }
+
+        .pay-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .pay-btn:hover { background: #27ae60; transform: translateY(-2px); }
+        
+        .mpesa-logo { width: 80px; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="checkout-card">
+        <a href="about.html" class="logo">Angaza<span class="dot">.</span></a>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/M-PESA_LOGO-01.svg" class="mpesa-logo" alt="M-Pesa">
+        
+        <h3>Secure Checkout</h3>
+        
+        <div class="order-summary">
+            <p id="item-display">Loading item...</p>
+            <strong id="price-display">KES 0</strong>
+        </div>
+
+        <div class="input-group">
+            <label>Your Name</label>
+            <input type="text" id="name" placeholder="Full Name">
+        </div>
+
+        <div class="input-group">
+            <label>M-Pesa Number</label>
+            <input type="tel" id="phone" placeholder="2547XXXXXXXX">
+        </div>
+
+        <button class="pay-btn" onclick="triggerSTK()">Pay via M-Pesa</button>
+    </div>
+
+    <script>
+        // 1. Get Data from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const itemName = urlParams.get('item');
+        const itemPrice = urlParams.get('price');
+
+        // 2. Display the data
+        if(itemName && itemPrice) {
+            document.getElementById('item-display').innerText = itemName;
+            document.getElementById('price-display').innerText = "KES " + Number(itemPrice).toLocaleString();
+        }
+
+        // 3. Trigger Payment logic
+        function triggerSTK() {
+            const phone = document.getElementById('phone').value;
+            const name = document.getElementById('name').value;
+
+            if(!phone || !name) {
+                alert("Please fill in all details");
+                return;
+            }
+
+            alert(`Requesting KES ${itemPrice} from ${phone}. Please check your phone for the PIN prompt!`);
+            
+            // Here is where you would call your Daraja API backend
+        }
+    </script>
+</body>
+</html>
