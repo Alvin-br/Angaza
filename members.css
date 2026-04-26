@@ -379,3 +379,66 @@ body {
 .special-highlight {
     border-top: 5px solid #25D366;
 }
+.join-membership-section {
+    padding: 60px 20px;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+.membership-options {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.method-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+    border-bottom: 4px solid #eee;
+}
+
+.special-highlight {
+    border-bottom: 4px solid #25D366; /* WhatsApp Green */
+}
+
+/* Vibrant WhatsApp Button */
+.whatsapp-btn {
+    display: inline-block;
+    background: #25D366;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-btn:hover {
+    background: #128C7E;
+    transform: scale(1.05);
+}
+
+/* Email Button Styling */
+.email-btn {
+    display: inline-block;
+    border: 2px solid #3498db;
+    color: #3498db;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.email-btn:hover {
+    background: #3498db;
+    color: white;
+}
